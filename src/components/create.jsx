@@ -1,4 +1,6 @@
 import { useFormik } from "formik"
+import { axiosInstance } from "../utils/axiosInstance"
+import auth from "../utils/token"
 
 
 
@@ -9,8 +11,12 @@ export const SectionOne = () => {
             type: '',
             phone: ''
         },
-        onSubmit: (values) => {
-            console.log(values)
+        onSubmit: async(values) => {
+            const token = auth.getToken();
+                let response = await axiosInstance.post('/product',{
+                    name: values.name
+                } ,{ headers: { 'Authorization': token } })
+                alert("Successfully created product")
         }
     })
     return (
