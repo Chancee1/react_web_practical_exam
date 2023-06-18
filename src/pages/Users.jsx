@@ -32,7 +32,7 @@ const UsersPage = () => {
         <PageWithSidebar>
             <Header title="Users" />
             {
-                !loading ? <Table headers={headers} rows={users} /> : <div>Loading...</div>
+                !loading ? <Table headers={headers} rows={users} itemsPerPage={4}/> : <div>Loading...</div>
             }
         </PageWithSidebar>
     )
