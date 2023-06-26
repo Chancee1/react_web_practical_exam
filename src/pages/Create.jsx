@@ -18,18 +18,18 @@ const CreatePage = () => {
     }
     const sections = [
         {
-            head: "Create Product",
-            text: "Enter Product Details"
+            head: "Register Employee",
+            text: "Enter Employee Details"
         },
         {
-            head: "Create Product",
-            text: "Enter Product Details"
+            head: "Record Laptops",
+            text: "Enter Laptops Details"
         }
     ]
     return (
         <PageWithSidebar>
-            <Header title="Create" />
-            <div className="flex flex-col md:flex-row md:justify-around bg-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] h-[70%] py-10 px-8 justify-center">
+            <Header title="Register" />
+            <div className="flex flex-col md:flex-row md:justify-around bg-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] h-[85%] py-10 px-8 justify-center">
                 <div className='w-full md:w-[23%] md:h-[150px] md:border border-[#DFE0EB] rounded-[7px] p-5 flex justify-between md:flex-col flex-row h-[70px]'>
                         {
                             sections.map((section, index) =>

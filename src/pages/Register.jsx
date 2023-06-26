@@ -24,7 +24,7 @@ const RegisterPage = () => {
         },
         onSubmit: (values, {setSubmitting}) => {
             console.log(values)
-            axiosInstance.post("/user/register", {
+            axiosInstance.post("/auth/register", {
                 firstname: values.firstname,
                 lastname: values.lastname,
                 email: values.email,
@@ -45,7 +45,7 @@ const RegisterPage = () => {
         <div className="bg-[#007AFE] w-full h-[40em] flex justify-center items-center overflow-y-auto">
             <div className="w-[35%] h-auto bg-white mx-auto p-4 rounded-lg">
             <div className="w-full flex items-center flex-col my-4">
-                <img src="/src/assets/lotus.png" alt="Logo" height={80} width={50}/>
+                <img src="/src/assets/logo.png" alt="Logo" height={80} width={50}/>
                 <p className="font-semibold text-[14px]">Sign Up on Doubble</p>
             </div>
             <form onSubmit={formik.handleSubmit} className="w-[90%] mx-auto">
@@ -101,7 +101,7 @@ const RegisterPage = () => {
                         />
                     {formik.touched.password && formik.errors.password ? <div className="text-xs text-red-400">{formik.errors.password}</div> : null}
                 </div>
-                {error ? <div className="text-xs text-red-400 mx-auto my-4">{error.message}</div> : null}
+                {error ? <div className="text-xs text-red-400 mx-auto my-4">{error}</div> : null}
                 <div>
                     <button type="submit" className="bg-[#007AFE] rounded-[5px] text-white w-[100%] h-10 text-[14px]" disabled={formik.isSubmitting}>Sign Up</button>
                     <div className="flex flex-row items-center justify-center h-10">

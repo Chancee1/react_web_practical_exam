@@ -33,18 +33,30 @@ const Table = ({ headers, rows, itemsPerPage }) => {
                     {currentData.map((row, index) =>
                         index % 2 == 0 ?
                             <tr className="h-14 bg-[#F4F6F8] w-full">
-                                <td className=" text-[11px] md:text-[13px] pl-5 ">{row.firstname}</td>
+                                <td className=" text-[11px] md:text-[13px] pl-5 ">{row.id}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.firstname}</td>
                                 <td className="text-left text-[11px] md:text-[13px]">{row.lastname}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.nationalId}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.phone}</td>
                                 <td className="text-left text-[11px] md:text-[13px]">{row.email}</td>
-                                <td className={`text-left text-[11px] md:text-[13px] ${row.type == "user" ? "text-blue-400" : "text-green-400"}`}>{row.type}</td>
-                                <td className="text-left text-[11px] md:text-[13px]">{formatDate(row.registeredOn)}</td>
+                                <td className={`text-left text-[11px] md:text-[13px] ${row.department == "Human resource" ? "text-blue-400" : "text-green-400"}`}>{row.department}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.position}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.manufacturer}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.model}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.serialNumber}</td>
                             </tr> :
                             <tr className="h-14 bg-[#FFF] w-full">
-                                <td className="text-left text-[11px] md:text-[13px] pl-5">{row.firstname}</td>
+                                <td className="text-[11px] md:text-[13px] pl-5">{row.id}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.firstname}</td>
                                 <td className="text-left text-[11px] md:text-[13px]">{row.lastname}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.nationalId}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.phone}</td>
                                 <td className="text-left text-[11px] md:text-[13px]">{row.email}</td>
-                                <td className={`text-left text-[11px] md:text-[13px] ${row.type == "user" ? "text-blue-400" : "text-green-400"}`}>{row.type}</td>
-                                <td className="text-left text-[11px] md:text-[13px]">{formatDate(row.registeredOn)}</td>
+                                <td className={`text-left text-[11px] md:text-[13px] ${row.department == "Human resource" ? "text-blue-400" : "text-green-400"}`}>{row.department}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.position}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.manufacturer}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.model}</td>
+                                <td className="text-left text-[11px] md:text-[13px]">{row.serialNumber}</td>
                             </tr>
                     )}
                 </tbody>
@@ -53,7 +65,7 @@ const Table = ({ headers, rows, itemsPerPage }) => {
                 pageCount={pageCount}
                 onPageChange={handlePageChange}
                 breakLabel="..."
-                containerClassName="flex w-[30%] justify-evenly p-5 text-[13px] absolute right-0"
+                containerClassName="flex w-[50%] md:w-[30%] justify-evenly p-5 text-[11px] md:text-[13px] absolute right-0"
                 activeLinkClassName="text-blue-500"
                 previousClassName="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300"
                 nextClassName="px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300"

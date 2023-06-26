@@ -20,14 +20,15 @@ const UsersPage = () => {
     }
 
     const fetchData = async () => {
-        let response = await axiosInstance.get('/user/all', { headers: { 'Authorization': token } })
+        let response = await axiosInstance.get('/purchased', { headers: { 'Authorization': token } })
+        console.log("Purchases::", response)
         setUsers(response.data.data)
         setLoading(false)
     }
     useEffect(() => {
         fetchData()
     }, [])
-    const headers = ["Firstname", "Lastname", "Email", "Type", "Date of Registration"]
+    const headers = ["No","Customer Name", "Date", "Product Id","Quantity", "Unit Price", "Total"]
     return (
         <PageWithSidebar>
             <Header title="Users" />

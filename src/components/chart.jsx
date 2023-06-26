@@ -3,12 +3,12 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement)
 
-const Chart = () =>{
+const Chart = ({employees=0}) =>{
     const data = {
-        labels: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct"],
+        labels: ["Jan", "Feb", "March", "April", "May", "June"],
         datasets: [{
             labels: "Sales of the Week",
-            data: [6,3,4,2,5,6,8,5],
+            data: [0,0,0,0,0,employees],
             backgroundColor: 'black',
             borderColor: '#0086FF',
             pointBorderColor: 'black',
@@ -31,6 +31,10 @@ const Chart = () =>{
     return(
         <div>
             <Line data={data} options={options}></Line>
+            <div className="p-10 flex items-center justify-between w-[30%]">
+                <div className="bg-blue-400 w-[10px] h-[2px]"></div>
+                <p className="text-[12px]">Employees</p>
+            </div>
         </div>
     )
 }

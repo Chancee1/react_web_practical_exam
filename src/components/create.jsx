@@ -2,53 +2,78 @@ import { useFormik } from "formik"
 import { axiosInstance } from "../utils/axiosInstance"
 import auth from "../utils/token"
 
-
-
 export const SectionOne = () => {
     const formik = useFormik({
         initialValues: {
-            name: '',
-            type: '',
-            phone: ''
+            firstname: '',
+            lastname: '',
+            nationalId: '',
+            phone: '',
+            email: '',
+            department: '',
+            position: '',
+            manufacturer: '',
+            model: '',
+            serialNumber: ''
         },
         onSubmit: async(values) => {
             const token = auth.getToken();
-                let response = await axiosInstance.post('/product',{
-                    name: values.name
+                let response = await axiosInstance.post('/employee',{
+                    firstname: values.firstname,
+                    lastname: values.lastname,
+                    nationalId: values.nationalId,
+                    phone: values.phone,
+                    email: values.email,
+                    department: values.department,
+                    position: values.position,
+                    manufacturer: values.manufacturer,
+                    model: values.model,
+                    serialNumber: values.serialNumber
                 } ,{ headers: { 'Authorization': token } })
-                alert("Successfully created product")
+                alert("Successfully registered Employee")
         }
     })
     return (
-        <div className="bg-white border border-[#DFE0EB] rounded-[7px] py-5 px-8">
+        <div className="bg-white border border-[#DFE0EB] h-[380px] rounded-[7px] py-5 px-8 overflow-y-auto">
             <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="">Product Information</label>
+                <label htmlFor="firstname">Employee Information</label>
                 <div className="h-8 w-[80%] my-3">
                     <input
                         type="text"
-                        name="name"
-                        id="name"
+                        name="firstname"
+                        id="firstname"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        value={formik.values.name}
-                        placeholder="Product Name"
+                        value={formik.values.firstname}
+                        placeholder="Employee Firstname"
                         className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
                     />
                 </div>
-
+               <div></div>
                 <div className="h-8 w-[80%] my-3">
                     <input
                         type="text"
-                        name="type"
-                        id="type"
+                        name="lastname"
+                        id="lastname"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        value={formik.values.type}
-                        placeholder="Product Type"
+                        value={formik.values.lastname}
+                        placeholder="Employee Lastname"
                         className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
                     />
                 </div>
-
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="nationalId"
+                        id="nationalId"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.nationalId}
+                        placeholder="National Id"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
                 <div className="h-8 w-[80%] my-3">
                     <input
                         type="text"
@@ -57,7 +82,79 @@ export const SectionOne = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.phone}
-                        placeholder="Mobile"
+                        placeholder="Mobile Number"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.email}
+                        placeholder="Employee email"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="department"
+                        id="department"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.department}
+                        placeholder="Employee department"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="position"
+                        id="position"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.position}
+                        placeholder="Employee position"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="manufacturer"
+                        id="manufacturer"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.manufacturer}
+                        placeholder="Laptop manufacturer"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="model"
+                        id="model"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.model}
+                        placeholder="Model"
+                        className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
+                    />
+                </div>
+                <div className="h-8 w-[80%] my-3">
+                    <input
+                        type="text"
+                        name="serialNumber"
+                        id="serialNumber"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.serialNumber}
+                        placeholder="Laptop Serial Number"
                         className="border border-[#DFE0EB] rounded-[10px] h-full w-full outline-none py-2 px-3 text-[13px] placeholder:text-[#9FA2B4]"
                     />
                 </div>
@@ -72,7 +169,7 @@ export const SectionOne = () => {
 export const SectionTwo = () => {
     return (
         <div>
-            SectionTwo
+            No Design available
         </div>
     )
 }

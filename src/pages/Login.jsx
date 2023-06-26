@@ -20,13 +20,13 @@ const LoginPage = () => {
         },
         onSubmit: (values, {setSubmitting}) => {
             console.log(values)
-            axiosInstance.post("/user/login", {
+            axiosInstance.post("/auth/login", {
                 email: values.email,
                 password: values.password
         }).then(response =>{
             console.log(response)
             auth.storeToken(response.data.token);
-            navigate('/dashboard');
+            navigate('/explore');
         }).catch(error =>{
             setError(error.response.data)
         }).finally(() =>{
@@ -39,7 +39,7 @@ const LoginPage = () => {
         <div className="bg-[#007AFE] w-full h-[40em] flex justify-center items-center overflow-y-auto">
             <div className="w-[35%] h-auto bg-white mx-auto p-4 rounded-lg">
             <div className="w-full flex items-center flex-col">
-                <img src="/src/assets/lotus.png" alt="Logo" height={80} width={50}/>
+                <img src="/src/assets/logo.png" alt="Logo" height={80} width={50}/>
                 <p className="font-semibold text-[14px]">Welcome Back!</p>
             </div>
             <form onSubmit={formik.handleSubmit} className="w-[90%] mx-auto">
