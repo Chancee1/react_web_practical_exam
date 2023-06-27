@@ -10,7 +10,7 @@ const RegisterPage = () => {
     const [error, setError] = useState()
     const validationSchema = Yup.object({
         firstname: Yup.string().required().label("First Name"),
-        lastname: Yup.string().required().label("Last Name"),
+        phone: Yup.string().length(10, 'Phone number must be 10 characters').required().label("Phone Name"),
         email: Yup.string().email("Invalid email address").required().label("Email"),
         password: Yup.string().min(6, "Password must be atleast 6 characters").required().label("Password")
     })
@@ -18,7 +18,7 @@ const RegisterPage = () => {
     const formik = useFormik({
         initialValues: {
             firstname: '',
-            lastname: '',
+            phone: '',
             email: '',
             password: ''
         },
@@ -26,10 +26,9 @@ const RegisterPage = () => {
             console.log(values)
             axiosInstance.post("/auth/register", {
                 firstname: values.firstname,
-                lastname: values.lastname,
+                phone: values.phone,
                 email: values.email,
-                password: values.password,
-                type: "user"
+                password: <values className="password"></values>
         }).then(response =>{
             console.log(response)
             navigate('/login');
@@ -63,17 +62,17 @@ const RegisterPage = () => {
                     {formik.touched.firstname && formik.errors.firstname ? <div className="text-xs text-red-400">{formik.errors.firstname}</div> : null}
                 </div>
                 <div className="flex flex-col my-3">
-                    <label htmlFor="lastName" className="text-[12px] text-[#ACB0C4] font-semibold mb-2">Last Name</label>
+                    <label htmlFor="lastName" className="text-[12px] text-[#ACB0C4] font-semibold mb-2">Phone</label>
                     <input
-                        id="lastname"
-                        name="lastname"
+                        id="phone"
+                        name="phone"
                         type="text"
                         onChange={formik.handleChange}
-                        value={formik.values.lastname}
+                        value={formik.values.phone}
                         onBlur={formik.handleBlur}
                         className="border-[#F0F1F7] rounded-[5px] border-2 w-[100%] h-10 px-3 text-[13px] outline-none"
                     />
-                    {formik.touched.lastname && formik.errors.lastname ? <div className="text-xs text-red-400">{formik.errors.lastname}</div> : null}
+                    {formik.touched.phone && formik.errors.phone ? <div className="text-xs text-red-400">{formik.errors.phone}</div> : null}
                 </div>
                 <div className="flex flex-col my-3">
                     <label htmlFor="email" className="text-[12px] text-[#ACB0C4] font-semibold mb-2">Email Address</label>

@@ -13,7 +13,7 @@ const Sidebar = () =>{
     return(
         <div className="w-[15%] md:w-[20%] h-[100vh] bg-white">
             <div className="flex items-end justify-around w-[60%] p-6">
-                <img src="/src/assets/logo.png" alt="logo" height={50} width={50}/>
+                <img src="/src/assets/lotus.png" alt="logo" height={50} width={50}/>
                 <p className="text-[#007AFE] text-[13px] font-bold h-6">EDS</p>
             </div>
             <div className=" mt-5">

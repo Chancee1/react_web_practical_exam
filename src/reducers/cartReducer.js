@@ -1,5 +1,5 @@
 const initialState = {
-    items: [],
+    cartItems: [],
   };
   
   const cartReducer = (state = initialState, action) => {
@@ -7,7 +7,20 @@ const initialState = {
       case 'ADD_TO_CART':
         return {
           ...state,
-          items: [...state.items, action.payload],
+          cartItems: [...state.cartItems, action.payload],
+        };
+      case 'CHANGE_QUANTITY':
+        return {
+          ...state,
+          cartItems: state.cartItems.map(item => {
+            if (item.id === action.payload.itemId) {
+              return {
+                ...item,
+                quantity: item.quantity + action.payload.newQuantity,
+              };
+            }
+            return item;
+          }),
         };
       default:
         return state;
