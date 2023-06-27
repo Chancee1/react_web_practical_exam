@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 const CartItem = ({id, name, price, imageUrl, quantity}) =>{
     const dispatch = useDispatch()
     const handleChangeQuantity = (itemId, change) => {
-            dispatch(changeQuantity(itemId, change));
+        if(change == -1 && quantity ==0) return;
+        dispatch(changeQuantity(itemId, change));
+            
         
       };
     

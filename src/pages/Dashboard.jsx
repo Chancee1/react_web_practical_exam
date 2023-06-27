@@ -79,22 +79,25 @@ const Dashboard = () =>{
                            </div>
                        </div>
                        
-                       <div className="bg-white row-span-2 col-span-1 md:col-span-2 rounded-[10px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
-                        <h1 className="p-3 font-bold">Your Cart</h1>
-                       
-                        <div className="px-5 py-2">
-                           {
-                           cartItems && cartItems.map(cartItem =>  <CartItem  imageUrl={cartItem.image} id={cartItem.id} name={cartItem.name} price={cartItem.price} quantity={cartItem.quantity}/>)
-                           }
-                        </div>
-                        <div className="bg-[#F0F1F7] h-14 flex justify-center items-center rounded-xl">
-                            <p>Total: {calculateTotal()}</p>
-                        </div>
-                        <div className="flex flex-col items-center justify-center h-[100vh]">
-                                <Link to="/checkout" className="bg-[#007AFE] w-[80%] rounded-[7px] text-[white] flex items-center justify-center h-10">Proceed to Checkout</Link>
+                       <div className="bg-white overflow-y-auto h-[100%] col-span-1 md:col-span-2 rounded-[10px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                            <div className="h-[70%]">
+                                <h1 className="p-3 font-bold">Your Cart</h1>
+                                <div className="px-5 py-2">
+                                   {
+                                   cartItems && cartItems.map(cartItem =>  <CartItem  imageUrl={cartItem.image} id={cartItem.id} name={cartItem.name} price={cartItem.price} quantity={cartItem.quantity}/>)
+                                   }
+                                </div>
+                            </div>
+                            <div className="h-[10%]">
+                            <div className="bg-[#F0F1F7] h-14 flex justify-center items-center rounded-xl my-3">
+                                <p>Total: {calculateTotal()}</p>
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                    <Link to="/checkout" className="bg-[#007AFE] w-[80%] rounded-[7px] text-[white] flex items-center justify-center h-10">Proceed to Checkout</Link>
+                            </div>
+                            </div>
                         </div>
                        </div>
-                    </div>
                 </PageWithSidebar>
     )
 }
